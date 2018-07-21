@@ -1,0 +1,19 @@
+@import 'reset';
+
+// body {
+//   background: linear-gradient(to bottom, #fff 0%, #fff 150px, #e6e9f5 150px);
+//   padding: 20px 30px;
+// }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3f4a5b;
+}
+
+// @media screen and (max-width: 600px) {
+//   body {
+//     background: linear-gradient(to bottom, #fff 0%, #fff 175px, #e6e9f5 175px);
+//   }
+// }
