@@ -52,96 +52,103 @@ export default {
 table {
   width: 100%;
   margin-bottom: 15px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px 0px #a3b1cf;
-  overflow: hidden;
 
   thead {
-    tr {
-      border-bottom: 1px solid #d1d6e4;
-    }
-
-    th {
-      font-size: 12px;
-      text-align: left;
-      text-transform: uppercase;
-      color: #5135a7;
-      padding: 9px 20px;
-
-      &:first-child {
-        text-align: right;
-      }
-    }
+    display: none;
   }
 
   tbody {
-
     tr {
-      transition: background-color 0.1s linear;
-
-      &:not(:last-child) {
-        border-bottom: 1px solid #d1d6e4;
-      }
-
-      &:hover {
-        background-color: #f7f7f7;
-        transition: background-color 0.2s linear;
-      }
+      margin-bottom: 10px;
+      display: block;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 5px 10px;
+      box-shadow: 0px 4px 8px 1px #97a7c8;
     }
-    td {
-      font-size: 12px;
-      text-align: left;
-      padding: 12px 20px;
 
-      &:first-child {
-        text-align: right;
+    td {
+      display: block;
+      text-align: left;
+      font-size: 11px;
+      padding: 3px 0;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:before {
+        content: attr(data-label);
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #5135a7;
+        font-weight: 700;
       }
     }
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   table {
-    border: 0;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  table thead {
-    display: none;
-  }
-
-  table tr {
-    margin-bottom: 20px;
-    display: block;
     background-color: #fff;
     border-radius: 4px;
-    border-bottom: 2px solid #ddd;
-    box-shadow: 2px 2px 1px #97a7c8;
-  }
+    box-shadow: 0px 2px 4px 0px #a3b1cf;
+    overflow: hidden;
 
-  table td {
-    display: block;
-    text-align: left;
-    font-size: 13px;
-  }
+    thead {
+      display: table-header-group;
 
-  table td:last-child {
-    border-bottom: 0;
-  }
+      tr {
+        border-bottom: 1px solid #d1d6e4;
+      }
 
-  table td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #5135a7;
-    font-weight: 700;
-  }
-    #card	tbody{
-    line-height:0!important;
+      th {
+        font-size: 12px;
+        text-align: left;
+        text-transform: uppercase;
+        color: #5135a7;
+        padding: 9px 20px;
+
+        &:first-child {
+          text-align: right;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        margin-bottom: 0;
+        display: table-row;
+        border-radius: 0;
+        padding: 5px 10px;
+        box-shadow: none;
+        transition: background-color 0.1s linear;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #d1d6e4;
+        }
+
+        &:hover {
+          background-color: #f7f7f7;
+          transition: background-color 0.2s linear;
+        }
+      }
+      td {
+        font-size: 12px;
+        text-align: left;
+        padding: 12px 20px;
+        display: table-cell;
+
+        &:before {
+          display: none;
+        }
+
+        &:first-child {
+          text-align: right;
+        }
+      }
+    }
   }
 }
 </style>

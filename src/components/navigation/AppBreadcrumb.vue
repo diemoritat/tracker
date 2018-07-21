@@ -15,10 +15,9 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .breadcrumb {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 
   &__item {
     display: inline-block;
@@ -53,6 +52,12 @@ export default {
       text-decoration: none;
       text-transform: uppercase;
     }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .breadcrumb {
+    margin-bottom: 10px;
   }
 }
 </style>

@@ -39,20 +39,21 @@ export default {
   &__content {
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
   }
 
   &__title {
     flex: 1;
     line-height: 1;
     font-weight: 300;
-    font-size: 28px;
+    font-size: 20px;
     text-transform: uppercase;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 
     &:after {
       content: '';
       display: block;
-      margin-top: 10px;
+      margin-top: 5px;
       width: 55px;
       height: 4px;
       background-color: #65dbdd;
@@ -61,15 +62,20 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .header {
 
     &__content {
-      flex-direction: column;
+      flex-direction: row;
     }
 
     &__title {
-      margin-bottom: 10px;
+      padding-bottom: 10px;
+      font-size: 28px;
+
+      &:after {
+        margin-top: 10px;
+      }
     }
   }
 }
