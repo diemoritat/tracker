@@ -8,10 +8,10 @@
         <th>
           Cliente
         </th>
-        <th>
+        <th width="19%">
           Criado em
         </th>
-        <th>
+        <th width="43%">
           Motivo
         </th>
       </tr>
@@ -21,7 +21,7 @@
         <td data-label="Valor">R$ {{ item.amount }}</td>
         <td data-label="Cliente">{{ item.email }}</td>
         <td data-label="Criado em">{{ item.created }}</td>
-        <td v-if="item.reason !== ''" data-label="Motivo">
+        <td :data-label="item.reason !== '' ? 'Motivo':''">
           {{ item.reason }}
         </td>
       </tr>
@@ -97,6 +97,7 @@ table {
     border-radius: 4px;
     box-shadow: 0px 2px 4px 0px #a3b1cf;
     overflow: hidden;
+    table-layout: fixed;
 
     thead {
       display: table-header-group;
@@ -110,7 +111,7 @@ table {
         text-align: left;
         text-transform: uppercase;
         color: #5135a7;
-        padding: 9px 20px;
+        padding: 9px 40px;
 
         &:first-child {
           text-align: right;
@@ -139,7 +140,7 @@ table {
       td {
         font-size: 12px;
         text-align: right;
-        padding: 12px 20px;
+        padding: 12px 40px;
         display: table-cell;
 
         &:before {
@@ -148,6 +149,24 @@ table {
 
         &:not(:first-child) {
           text-align: left;
+          padding: 12px 10px 12px 40px;
+        }
+
+        &:last-child {
+          white-space: nowrap;
+          position: relative;
+          
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+            top: 0;
+            width: 70px;
+            height: 100%;
+            box-shadow: inset -63px 0px 74px -20px #ffffff;
+          }
         }
       }
     }
