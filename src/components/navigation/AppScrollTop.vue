@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'ScrollTop',
+  name: 'AppScrollTop',
   methods: {
     scrollTop() {
       window.scroll({
