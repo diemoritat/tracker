@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import List from './views/List.vue'
-import AddNew from './views/AddNew.vue'
+import PageHome from './views/PageHome'
+import PageList from './views/PageList'
+import PageNew from './views/PageNew'
 
 Vue.use(Router)
 
@@ -10,12 +11,17 @@ export default new Router({
     {
       path: '/',
       name: 'Cobranças',
-      component: List
+      component: PageList
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: PageHome
     },
     {
       path: '/new',
       name: 'Nova Cobrança',
-      component: AddNew
+      component: PageNew
     }
   ]
 })

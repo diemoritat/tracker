@@ -1,6 +1,6 @@
 <template>
   <ul role="nav" class="breadcrumb">
-    <router-link class="breadcrumb__item" tag="li" to="/wtv">
+    <router-link class="breadcrumb__item" tag="li" to="/home">
       <a class="breadcrumb__link">Página Inicial</a>
     </router-link>
     <router-link class="breadcrumb__item" tag="li" to="/">
@@ -46,7 +46,7 @@ export default {
     text-transform: uppercase;
   }
 
-  .router-link-active {
+  .router-link-exact-active {
     .breadcrumb__link {
       color: #3d485a;
       text-decoration: none;

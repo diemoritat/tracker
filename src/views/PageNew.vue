@@ -13,12 +13,12 @@
     </header>
     
 
-    <form action="" class="form">
+    <form class="form">
       <fieldset>
         <legend class="form__legend">Dados da cobrança</legend>
 
         <form-input
-          v-model="amount"
+          v-model.trim="newCharge.amount"
           :id="1"
           :type="'money'"
         >
@@ -26,28 +26,32 @@
         </form-input>
 
         <form-input 
-          v-model="email"
+          v-model.trim="newCharge.email"
           :id="2"
           :placeholder="'email@exemplo.com'"
           :type="'text'"
+          name="email"
         >
           Email
         </form-input>
 
+        <div class="error" v-if="!$v.newCharge.email.required">Field is required</div>
+        <div class="error" v-if="!$v.newCharge.email.email">Name must have at least letters.</div>
+
         <div class="form__field">
-          <form-checkbox v-model="addReason" :id="4">Adicionar motivo</form-checkbox>
+          <form-checkbox v-model="hasReason" :id="4">Adicionar motivo</form-checkbox>
         </div>
 
         <form-input 
-          v-if="addReason"
-          v-model="reason"
+          v-if="hasReason"
+          v-model.trim="newCharge.reason"
           :id="3"
           :placeholder="'Motivo da cobrança'"
         >
           Motivo
         </form-input>
 
-        <form-button :buttonAction="()=>{}" :isDisabled="true">
+        <form-button :buttonAction="submit" :disabled="submitStatus === 'ERROR'">
           Criar
         </form-button>
       </fieldset>
@@ -60,6 +64,10 @@ import FormButton from '@/components/form/FormButton'
 import FormCheckbox from '@/components/form/FormCheckbox'
 import FormInput from '@/components/form/FormInput'
 
+import * as _ from 'lodash';
+import { validationMixin } from 'vuelidate'
+import { required, email, minValue, minLength, between } from 'vuelidate/lib/validators'
+
 export default {
   name: 'AddNew',
   components: {
@@ -69,15 +77,56 @@ export default {
   },
   data() {
     return {
-      amount: 0.96,
-      email: '',
-      addReason: false,
-      reason: ''
+      newCharge: {
+        amount: 0,
+        email: '',
+        created: '',
+        reason: ''
+      },
+      hasReason: false,
+      submitStatus: null
+    }
+  },
+  mixins: [validationMixin],
+  validations: {
+    newCharge: {
+      amount: {
+        required,
+        minValue: parseFloat("0.01")
+      },
+      email: {
+        required,
+        email
+      },
+      reason: {
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
-    addNew() {
-      this.$router.push('/new')
+    submit() {
+      this.$v.newCharge.$touch()
+      console.log(this.$v);
+      
+      if (this.$v.newCharge.$invalid) {
+        this.submitStatus = 'ERROR'
+      } else {
+        this.submitStatus = 'PENDING'
+        this.newCharge.created = this.dateCreated
+        this.$store.commit('createCharge', { 
+          ...this.newCharge
+        })
+
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+          this.$router.push('/')
+        }, 500)
+      }
+    }
+  },
+  computed: {
+    dateCreated() {
+      return new Date().toLocaleString("pt-BR").replace(' ', ' \u2022 ')
     }
   }
 }
@@ -86,7 +135,7 @@ export default {
 <style lang="scss">
 .page-add {
   padding: 20px 30px;
-  height: 100%;
+  min-height: 100%;
 }
 
 .alt-header {
