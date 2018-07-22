@@ -1,7 +1,12 @@
 <template>
   <div class="checkbox">
-    <input class="checkbox__input" @change="change" type="checkbox" :id="id">
-    <label class="checkbox__label" :for="id">
+    <input 
+      :id="name" 
+      class="checkbox__input" 
+      type="checkbox"
+      @change="change" 
+    >
+    <label :for="name" class="checkbox__label">
       <slot/>
     </label>
   </div>
@@ -11,8 +16,8 @@
 export default {
   name: 'FormCheckbox',
   props: {
-    id: {
-      type: Number
+    name: {
+      type: String
     }
   },
   methods: {

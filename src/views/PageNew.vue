@@ -3,55 +3,57 @@
     <header class="alt-header">
       <div class="alt-header__top">
         <router-link to="/" class="alt-header__back">
-          <span class="alt-header__back-icon"></span>
+          <span class="alt-header__back-icon"/>
           Voltar
         </router-link>
       </div>
       <div class="alt-header__content">
-        <h1 class="alt-header__title">{{$route.name}}</h1>
+        <h1 class="alt-header__title">{{ $route.name }}</h1>
       </div>
     </header>
-    
 
     <form class="form">
       <fieldset>
         <legend class="form__legend">Dados da cobrança</legend>
 
         <form-input
+          v-validate="'required'"
           v-model.trim="newCharge.amount"
-          :id="1"
-          :type="'money'"
+          :error="errors.first('amount')"
+          name="amount"
+          type="money"
         >
           Valor
         </form-input>
 
         <form-input 
+          v-validate="'required|email'"
           v-model.trim="newCharge.email"
-          :id="2"
-          :placeholder="'email@exemplo.com'"
-          :type="'text'"
+          :error="errors.first('email')"
           name="email"
+          placeholder="email@exemplo.com"
+          type="text"
         >
           Email
         </form-input>
 
-        <div class="error" v-if="!$v.newCharge.email.required">Field is required</div>
-        <div class="error" v-if="!$v.newCharge.email.email">Name must have at least letters.</div>
-
         <div class="form__field">
-          <form-checkbox v-model="hasReason" :id="4">Adicionar motivo</form-checkbox>
+          <form-checkbox v-model="hasReason" name="hasReason">
+            Adicionar motivo
+          </form-checkbox>
         </div>
 
         <form-input 
           v-if="hasReason"
           v-model.trim="newCharge.reason"
-          :id="3"
-          :placeholder="'Motivo da cobrança'"
+          :error="errors.first('reason')"
+          name="reason"
+          placeholder="Motivo da cobrança"
         >
           Motivo
         </form-input>
 
-        <form-button :buttonAction="submit" :disabled="submitStatus === 'ERROR'">
+        <form-button :button-action="submit" :disabled="submitStatus === 'ERROR'">
           Criar
         </form-button>
       </fieldset>
@@ -64,12 +66,10 @@ import FormButton from '@/components/form/FormButton'
 import FormCheckbox from '@/components/form/FormCheckbox'
 import FormInput from '@/components/form/FormInput'
 
-import * as _ from 'lodash';
-import { validationMixin } from 'vuelidate'
-import { required, email, minValue, minLength, between } from 'vuelidate/lib/validators'
+import portuguese from 'vee-validate/dist/locale/pt_BR';
 
 export default {
-  name: 'AddNew',
+  name: 'PageNew',
   components: {
     FormButton,
     FormCheckbox,
@@ -87,46 +87,34 @@ export default {
       submitStatus: null
     }
   },
-  mixins: [validationMixin],
-  validations: {
-    newCharge: {
-      amount: {
-        required,
-        minValue: parseFloat("0.01")
-      },
-      email: {
-        required,
-        email
-      },
-      reason: {
-        minLength: minLength(3)
-      }
-    }
-  },
-  methods: {
-    submit() {
-      this.$v.newCharge.$touch()
-      console.log(this.$v);
-      
-      if (this.$v.newCharge.$invalid) {
-        this.submitStatus = 'ERROR'
-      } else {
-        this.submitStatus = 'PENDING'
-        this.newCharge.created = this.dateCreated
-        this.$store.commit('createCharge', { 
-          ...this.newCharge
-        })
-
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-          this.$router.push('/')
-        }, 500)
-      }
-    }
-  },
   computed: {
     dateCreated() {
       return new Date().toLocaleString("pt-BR").replace(' ', ' \u2022 ')
+    }
+  },
+  created() {
+    this.$validator.localize('pt_BR', {
+      messages: portuguese.messages
+    });
+  },
+  methods: {
+    submit() {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          this.submitStatus = 'PENDING'
+          this.newCharge.created = this.dateCreated
+          this.$store.commit('createCharge', { 
+            ...this.newCharge
+          })
+
+          setTimeout(() => {
+            this.submitStatus = 'OK'
+            this.$router.push('/')
+          }, 500)
+          return;
+        }
+        this.submitStatus = 'ERROR'
+      })
     }
   }
 }

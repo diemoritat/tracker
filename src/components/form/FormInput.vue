@@ -1,48 +1,66 @@
 <template>
-  <div class="form__field">
-    <label class="form__input-label" :for="`input__${id}`">
+  <div :class="`form__field  ${error !== '' ? 'form__field--error' : ''}`">
+    <label :for="`input__${name}`" class="form__input-label">
       <slot/>
     </label>
-    <div :class="`form__input-holder${type === 'money'?'  form__input-holder--money':''}`">
+    <div :class="`form__input-holder  ${type === 'money'?'form__input-holder--money':''}`">
       <input
         v-mask="type === 'money'?'money': ''"
-        :id="`input__${id}`" 
+        :id="`input__${name}`" 
         :placeholder="placeholder" 
         :type="type" 
+        :name="name"
         class="form__input"
-        @change="change"
-      />
+        @input="$emit('input', $event.target.value)"
+      >
     </div>
+    <span v-show="error !== ''" class="form__input-error">
+      <i class="icon-alert"/>
+      {{ error }}
+    </span>
   </div>
 </template>
 
 <script>
 import AwesomeMask from 'awesome-mask'
 
-
 export default {
   name: 'AppInput',
-  props: {
-    id: {
-      type: Number,
-      required: true,
-      default: 1
+  $_veeValidate: {
+    value () {
+      return this.$el.value;
     },
-    placeholder: {
-      type: String
-    },
-    type: {
-      type: String,
-      default: 'text'
+    name () {
+      return this.name;
     }
   },
   directives: {
     'mask': AwesomeMask
   },
-  methods: {
-    change(event){
-      this.$emit('input', event.target.value)
+  props: {
+    error: {
+      type: String,
+      default: ''
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    type: {
+      type: String,
+      default: 'text'
+    },
+    value: {
+      type: null,
+      default: null
     }
+  },
+  mounted () {
+    this.$el.value = this.value;
   }
 }
 </script>
@@ -55,7 +73,7 @@ export default {
     margin-bottom: 20px;
 
     --label-color: #424d5e;
-    --input-color: #9197ab;
+    --input-color: #424d5e;
     --border-color: #9aa0b4;
     --border-width: 1px;
 
@@ -89,7 +107,7 @@ export default {
 
     &:focus-within {
       &:after {
-        background-color: #1845e3;
+        background-color: var(--border-color);
         transition: all 0.3s linear;
       }
     }
@@ -129,6 +147,13 @@ export default {
       outline: 0;
       transition: border 0.2s linear;
     }
+  }
+
+  &__input-error {
+    color: var(--input-color);
+    padding: 1px 0;
+    font-size: 13px;
+    font-family: 'Quicksand', sans-serif;
   }
 }
 </style>

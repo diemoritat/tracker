@@ -1,6 +1,6 @@
 <template>
   <div class="page-list">
-    <the-header>{{this.$route.name}}</the-header>
+    <the-header>{{ $route.name }}</the-header>
     <app-table :tableData="$store.state.charges"/>
     <app-scroll-top/>
   </div>
@@ -12,7 +12,7 @@ import TheHeader from '@/components/TheHeader'
 import AppScrollTop from '@/components/navigation/AppScrollTop'
 
 export default {
-  name: 'home',
+  name: 'PageList',
   components: {
     AppTable,
     TheHeader,

@@ -18,10 +18,17 @@
     </thead>
     <tbody>
       <tr v-for="(item, index) of tableData" :key="`table-item__${index}`">
-        <td data-label="Valor">R$ {{item.amount}}</td>
-        <td data-label="Cliente">{{item.email}}</td>
-        <td data-label="Criado em">{{item.created}}</td>
-        <td v-if="!item.reason === ''" data-label="Motivo">{{item.reason}}</td>
+        <td data-label="Valor">R$ {{ item.amount }}</td>
+        <td data-label="Cliente">{{ item.email }}</td>
+        <td data-label="Criado em">{{ item.created }}</td>
+        <td v-if="item.reason !== ''" data-label="Motivo">
+          {{ item.reason }}
+        </td>
+      </tr>
+      <tr v-if="tableData == ''">
+        <td colspan="4" class="center">
+          Não há cobranças a serem listadas
+        </td>
       </tr>
     </tbody>
   </table>
@@ -76,6 +83,10 @@ table {
         color: #5135a7;
         font-weight: 700;
       }
+
+      &.center {
+        text-align: center;
+      }
     }
   }
 }
@@ -127,7 +138,7 @@ table {
       }
       td {
         font-size: 12px;
-        text-align: left;
+        text-align: right;
         padding: 12px 20px;
         display: table-cell;
 
@@ -135,8 +146,8 @@ table {
           display: none;
         }
 
-        &:first-child {
-          text-align: right;
+        &:not(:first-child) {
+          text-align: left;
         }
       }
     }
