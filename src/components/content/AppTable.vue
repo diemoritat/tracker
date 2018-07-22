@@ -21,7 +21,7 @@
         <td data-label="Valor">R$ {{item.amount}}</td>
         <td data-label="Cliente">{{item.email}}</td>
         <td data-label="Criado em">{{item.created}}</td>
-        <td data-label="Motivo">{{item.reason}}</td>
+        <td v-if="!item.reason === ''" data-label="Motivo">{{item.reason}}</td>
       </tr>
     </tbody>
   </table>
