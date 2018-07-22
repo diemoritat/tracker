@@ -1,7 +1,7 @@
 <template>
   <div class="page-list">
     <the-header>{{this.$route.name}}</the-header>
-    <app-table/>
+    <app-table :tableData="$store.state.charges"/>
     <app-scroll-top/>
   </div>
 </template>
@@ -30,6 +30,6 @@ export default {
 .page-list {
   background: linear-gradient(to bottom, #fff 0%, #fff 150px, #e6e9f5 150px);
   padding: 20px 30px;
-  height: 100%;
+  min-height: 100%;
 }
 </style>
