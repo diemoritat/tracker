@@ -17,23 +17,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-label="Valor">R$ 100,00</td>
-        <td data-label="Cliente">gerhold.adolf@gmail.com</td>
-        <td data-label="Criado em">12/05/2018 - 17h34</td>
-        <td data-label="Motivo">Lorem ipsum blá blá</td>
-      </tr>
-      <tr>
-        <td data-label="Valor">R$ 100,00</td>
-        <td data-label="Cliente">gerhold.adolf@gmail.com</td>
-        <td data-label="Criado em">12/05/2018 - 17h34</td>
-        <td data-label="Motivo">Lorem ipsum blá blá</td>
-      </tr>
-      <tr>
-        <td data-label="Valor">R$ 100,00</td>
-        <td data-label="Cliente">gerhold.adolf@gmail.com</td>
-        <td data-label="Criado em">12/05/2018 - 17h34</td>
-        <td data-label="Motivo">Lorem ipsum blá blá</td>
+      <tr v-for="(item, index) of tableData" :key="`table-item__${index}`">
+        <td data-label="Valor">R$ {{item.amount}}</td>
+        <td data-label="Cliente">{{item.email}}</td>
+        <td data-label="Criado em">{{item.created}}</td>
+        <td data-label="Motivo">{{item.reason}}</td>
       </tr>
     </tbody>
   </table>
@@ -43,7 +31,10 @@
 export default {
   name: 'Table',
   props: {
-    msg: String
+    tableData: {
+      type: Array,
+      required: true
+    }
   }
 }
 </script>
