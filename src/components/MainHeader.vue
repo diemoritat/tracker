@@ -64,11 +64,10 @@ export default {
 
 @media screen and (min-width: $breakpoint-md) {
   .header {
-
     &__content {
       flex-direction: row;
     }
-
+    
     &__title {
       padding-bottom: 10px;
       font-size: 28px;

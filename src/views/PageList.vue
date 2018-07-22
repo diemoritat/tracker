@@ -1,6 +1,6 @@
 <template>
   <div class="page-list">
-    <the-header>{{ $route.name }}</the-header>
+    <main-header>{{ $route.name }}</main-header>
     <app-table :tableData="$store.state.charges"/>
     <app-scroll-top/>
   </div>
@@ -8,14 +8,14 @@
 
 <script>
 import AppTable from '@/components/content/AppTable'
-import TheHeader from '@/components/TheHeader'
+import MainHeader from '@/components/MainHeader'
 import AppScrollTop from '@/components/navigation/AppScrollTop'
 
 export default {
   name: 'PageList',
   components: {
     AppTable,
-    TheHeader,
+    MainHeader,
     AppScrollTop
   },
   methods: {
