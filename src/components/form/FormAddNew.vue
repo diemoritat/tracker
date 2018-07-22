@@ -8,6 +8,7 @@
         v-model.trim="newCharge.amount"
         :error="errors.first('amount')"
         name="amount"
+        placeholder="0,00"
         type="money"
       >
         Valor
@@ -107,12 +108,12 @@ export default {
   &__legend {
     width: 100%;
     max-width: 400px;
-    color: #1845e3;
+    color: $color-secondary;
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     padding-bottom: 6px;
-    border-bottom: 1px solid #1845e3;
+    border-bottom: 1px solid $color-secondary;
     margin-bottom: 25px;
   }
 }

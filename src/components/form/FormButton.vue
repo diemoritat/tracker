@@ -22,8 +22,8 @@ export default {
 
 <style scoped lang="scss">
 button{
-  background-color: #1543e3;
-  color: #fff;
+  background-color: $color-secondary;
+  color: white;
   padding: 9px 0;
   border-radius: 35px;
   text-align: center;
@@ -36,14 +36,14 @@ button{
   transition: background-color 0.2s linear;
 
   &:hover {
-    background-color: #374d98;
+    background-color: $color-secondary-dark;
     transition: background-color 0.2s linear;
   }
 
   &[disabled] {
     cursor: not-allowed;
-    background: #bfc6d9;
-    color: #8990a6;
+    background: $color-default-light;
+    color: $color-default;
   }
 }
 

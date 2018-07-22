@@ -1,12 +1,12 @@
 <template>
-  <div class="checkbox">
+  <div class="form-checkbox">
     <input 
       :id="name" 
-      class="checkbox__input" 
+      class="form-checkbox__input" 
       type="checkbox"
       @change="change" 
     >
-    <label :for="name" class="checkbox__label">
+    <label :for="name" class="form-checkbox__label">
       <slot/>
     </label>
   </div>
@@ -28,7 +28,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+.form-checkbox {
+  padding-top: 10px;
 
   [type="checkbox"] {
     position: absolute;
@@ -40,7 +43,7 @@ export default {
       cursor: pointer;
       font-size: 14px;
       display: inline-block;
-      color: #666;
+      color: $color-default;
 
       &:before {
         content: '';
@@ -49,7 +52,7 @@ export default {
         bottom: 0;
         width: 13px;
         height: 13px;
-        border: 2px solid #8990a6;
+        border: 2px solid $color-default-light;
         border-radius: 2px;
         transition: box-shadow 0.2s ease;
       }
@@ -60,7 +63,7 @@ export default {
         top: 1px;
         left: 3px;
         font-size: 13px;
-        color: #1845e3;
+        color: $color-secondary;
       }
     }
 
@@ -75,10 +78,10 @@ export default {
     }
 
     &:checked + label {
-      color: #1845e3;
+      color: $color-secondary;
 
       &:before {
-        border-color: #1845e3;
+        border-color: $color-secondary;
       }
       &:after {
         opacity: 1;
@@ -87,4 +90,5 @@ export default {
       }
     }
   }
+}
 </style>

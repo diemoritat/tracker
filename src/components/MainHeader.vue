@@ -56,7 +56,7 @@ export default {
       margin-top: 5px;
       width: 55px;
       height: 4px;
-      background-color: #65dbdd;
+      background-color: $color-highlight;
       border-radius: 20px;
     }
   }

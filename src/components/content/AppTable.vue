@@ -140,7 +140,10 @@ table {
       td {
         font-size: 12px;
         text-align: right;
-        padding: 12px 40px;
+        padding-top: 12px;
+        padding-right: 40px;
+        padding-left: 10px;
+        padding-bottom: 12px;
         display: table-cell;
 
         &:before {
@@ -149,7 +152,8 @@ table {
 
         &:not(:first-child) {
           text-align: left;
-          padding: 12px 10px 12px 40px;
+          padding-right: 10px;
+          padding-left: 40px;
         }
 
         &:last-child {

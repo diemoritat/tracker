@@ -34,7 +34,7 @@ export default {
   }
 
   &__back {
-    color: #1845e3;
+    color: $color-secondary;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
@@ -47,7 +47,7 @@ export default {
   &__back-icon {
     width: 12px;
     height: 2px;
-    background-color: #254ee4;
+    background-color: $color-secondary;
     border-radius: 5px;
     position: absolute;
     left: 3px;
@@ -61,7 +61,7 @@ export default {
       top: -2px;
       width: 8px;
       height: 2px;
-      background-color: #254ee4;
+      background-color: $color-secondary;
       transform: rotate(-45deg);
       border-radius: 5px;
     }
@@ -73,7 +73,7 @@ export default {
       top: 2px;
       width: 8px;
       height: 2px;
-      background-color: #254ee4;
+      background-color: $color-secondary;
       transform: rotate(45deg);
       border-radius: 5px;
     }
