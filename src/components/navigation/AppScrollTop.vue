@@ -1,10 +1,18 @@
 <template>
-  <button class="scroll-top">Ir para o topo</button>
+  <button class="scroll-top" @click="scrollTop">Ir para o topo</button>
 </template>
 
 <script>
 export default {
-  name: 'ScrollTop'
+  name: 'ScrollTop',
+  methods: {
+    scrollTop() {
+      window.scroll({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }
 }
 </script>
 
