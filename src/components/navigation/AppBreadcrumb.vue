@@ -1,8 +1,8 @@
 <template>
   <ul role="nav" class="breadcrumb">
-    <router-link class="breadcrumb__item" tag="li" to="/home">
+    <li class="breadcrumb__item">
       <a class="breadcrumb__link">Página Inicial</a>
-    </router-link>
+    </li>
     <router-link class="breadcrumb__item" tag="li" to="/">
       <a class="breadcrumb__link">Cobranças</a>
     </router-link>
