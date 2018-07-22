@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'Table',
+  name: 'AppTable',
   props: {
     tableData: {
       type: Array,
