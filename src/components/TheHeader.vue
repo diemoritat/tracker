@@ -62,7 +62,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: $breakpoint-md) {
   .header {
 
     &__content {

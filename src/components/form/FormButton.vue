@@ -28,6 +28,7 @@ button{
   border-radius: 35px;
   text-align: center;
   min-width: 190px;
+  width: 100%;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
@@ -46,9 +47,9 @@ button{
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: $breakpoint-md) {
   button {
-    width: 100%;
+    width: auto;
   }
 }
 </style>

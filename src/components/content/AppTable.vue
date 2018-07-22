@@ -91,7 +91,7 @@ table {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: $breakpoint-md) {
   table {
     background-color: #fff;
     border-radius: 4px;

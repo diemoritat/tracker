@@ -55,7 +55,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: $breakpoint-md) {
   .breadcrumb {
     margin-bottom: 10px;
   }

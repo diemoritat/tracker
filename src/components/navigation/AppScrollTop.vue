@@ -20,6 +20,8 @@ export default {
 .scroll-top {
   width: 35px;
   height: 35px;
+  display: block;
+  margin: 0 auto;
   background-color: transparent;
   border: 2px solid #254ee4;
   border-radius: 50%;
@@ -40,10 +42,10 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: $breakpoint-md) {
   .scroll-top {
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
+    margin: 0;
   }
 }
 </style>

@@ -53,7 +53,7 @@
           Motivo
         </form-input>
 
-        <form-button :button-action="submit" :disabled="submitStatus === 'ERROR'">
+        <form-button :button-action="submit">
           Criar
         </form-button>
       </fieldset>
