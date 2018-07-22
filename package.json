@@ -9,7 +9,9 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@storybook/vue": "^3.4.8",
     "awesome-mask": "^1.1.1",
+    "babel-preset-es2015": "^6.24.1",
     "sinon": "^6.1.4",
     "vee-validate": "^2.1.0-beta.6",
     "vue": "^2.5.16",
@@ -24,9 +26,13 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-preset-vue": "^2.0.2",
+    "babel-runtime": "^6.26.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.16"
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.1"
   },
   "eslintConfig": {
     "root": true,
