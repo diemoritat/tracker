@@ -6,9 +6,12 @@ This is just a somple application to list charges. There's also a page to add ne
 
 
 Desktop
+
 ![Gif simulating the desktop app](https://image.ibb.co/k028W8/desktop.gif)
 
+
 Mobile
+
 ![Gif simulating the mobile app](https://image.ibb.co/gNbfdo/mobile.gif)
 
 ### Installing and running the project locally
