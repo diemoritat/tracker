@@ -1,3 +1,17 @@
+/*
+  Children
+  <slot/> - The text inside the button.
+
+  Methods 
+  submit() - Validates all the inputs and, if they are valid, saves the data to the vuex store, through a mutation. Currently it has a timeout so it won't be so instantaneous.
+
+  Computed Properties
+  dateCreated() - Returns the localized Date to be saved along with the data on the store.
+
+  Lifecycle Methods
+  created() - Localizes the validator to pt_br
+*/
+
 <template>
   <form class="form">
     <fieldset>

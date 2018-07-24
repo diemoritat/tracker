@@ -1,3 +1,18 @@
+/*
+  Props
+  @String error - The error message to be displayed, if any.
+  @String name - Required by vee-validate. The field name.
+  @String placeholder - The placeholder text to be shown on the input field.
+  @String type - The field type. It accepts all the html types, plus a custom one called 'money', which applies a currency mask to the input field.
+  @String value - Required by vee-validate. The initial value for the input field.
+
+  Custom Directives
+  'mask' - applies the currency mask on the input field.
+
+  Events
+  @input - Required by vee-validate. Emits an 'input' event to the parent, and is also used by vee-validate to actually validate the input.
+*/
+
 <template>
   <div :class="`form__field  ${error !== '' ? 'form__field--error' : ''}`">
     <label :for="`input__${name}`" class="form__input-label">
@@ -55,7 +70,8 @@ export default {
       default: 'text'
     },
     value: {
-      type: null,
+      type: String,
+      required: true,
       default: null
     }
   },

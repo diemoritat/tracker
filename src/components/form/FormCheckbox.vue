@@ -1,3 +1,11 @@
+/*
+  Props
+  @String name - The field name.
+
+  Events
+  @change - Emits an 'input' event to the parent with the current value.
+*/
+
 <template>
   <div class="form-checkbox">
     <input 

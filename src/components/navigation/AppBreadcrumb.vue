@@ -39,7 +39,7 @@ export default {
   }
 
   &__link {
-    color: #1845e3;
+    color: $color-secondary;
     font-size: 12px;
     font-weight: 600;
     text-decoration: none;
@@ -48,7 +48,7 @@ export default {
 
   .router-link-exact-active {
     .breadcrumb__link {
-      color: #3d485a;
+      color: $color-default;
       text-decoration: none;
       text-transform: uppercase;
     }

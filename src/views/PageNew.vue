@@ -1,7 +1,7 @@
 <template>
   <div class="page-add">
-    <alt-header></alt-header>
-    <form-add-new></form-add-new>
+    <alt-header/>
+    <form-add-new/>
   </div>
 </template>
 

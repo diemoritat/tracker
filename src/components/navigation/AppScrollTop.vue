@@ -1,3 +1,8 @@
+/*
+  Methods
+  scrollTop() - Smoothly scrolls the window to the top.
+*/
+
 <template>
   <button class="scroll-top" @click="scrollTop">Ir para o topo</button>
 </template>
@@ -23,7 +28,7 @@ export default {
   display: block;
   margin: 0 auto;
   background-color: transparent;
-  border: 2px solid #254ee4;
+  border: 2px solid $color-secondary;
   border-radius: 50%;
   position: relative;
   text-indent: -999999px;
@@ -38,7 +43,7 @@ export default {
     line-height: 1;
     font-size: 20px;
     transform: rotate(-90deg);
-    color: #254ee4;
+    color: $color-secondary;
   }
 }
 

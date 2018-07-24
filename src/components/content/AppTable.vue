@@ -1,4 +1,10 @@
+/*
+  Props
+  @Array tableData - Contains the data to be iterated over and displayed on the table.
+*/
+
 <template>
+<div class="app-table">
   <table>
     <thead>
       <tr>
@@ -32,6 +38,7 @@
       </tr>
     </tbody>
   </table>
+</div>
 </template>
 
 <script>
@@ -47,6 +54,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 table {
   width: 100%;
   margin-bottom: 15px;
@@ -80,7 +88,7 @@ table {
         display: block;
         font-size: 11px;
         text-transform: uppercase;
-        color: #5135a7;
+        color: $color-primary;
         font-weight: 700;
       }
 
@@ -92,12 +100,17 @@ table {
 }
 
 @media screen and (min-width: $breakpoint-md) {
+  // This extra div is needed to add box-shadow on IE11
+  .app-table {
+    box-shadow: 0px 2px 4px 0px #a3b1cf;
+    border-radius: 4px;
+  }
+
   table {
     background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px 0px #a3b1cf;
-    overflow: hidden;
     table-layout: fixed;
+    border-radius: 4px;
+    overflow: hidden;
 
     thead {
       display: table-header-group;
@@ -110,7 +123,7 @@ table {
         font-size: 12px;
         text-align: left;
         text-transform: uppercase;
-        color: #5135a7;
+        color: $color-primary;
         padding: 9px 40px;
 
         &:first-child {
@@ -169,7 +182,7 @@ table {
             top: 0;
             width: 70px;
             height: 100%;
-            box-shadow: inset -63px 0px 74px -20px #ffffff;
+            box-shadow: inset -63px 0px 74px -20px white;
           }
         }
       }

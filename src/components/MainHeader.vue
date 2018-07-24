@@ -1,3 +1,8 @@
+/*
+  Methods
+  addNew() - Redirects the user to the /new page, to add a new item.
+*/
+
 <template>
   <header class="header">
     <div class="header__top">
@@ -5,7 +10,7 @@
     </div>
     <div class="header__content">
       <h1 class="header__title">
-        <slot/>
+        {{ $route.name }}
       </h1>
       <form-button :buttonAction="addNew">
         Fazer uma cobrança

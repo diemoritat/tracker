@@ -1,3 +1,15 @@
+/*
+  Props
+  @Function buttonAction - The action that will happen when the user clicks the button.
+  @Boolean isDisabled - If true, disables the button.
+
+  Children
+  <slot/> - The text inside the button.
+
+  Events
+  @click - Triggers the buttonAction received as prop.
+*/
+
 <template>
   <button type="button" @click="buttonAction" :disabled="isDisabled">
     <slot/>
@@ -22,13 +34,16 @@ export default {
 
 <style scoped lang="scss">
 button{
-  background-color: $color-secondary;
-  color: white;
-  padding: 9px 0;
-  border-radius: 35px;
-  text-align: center;
   min-width: 190px;
   width: 100%;
+  display: block;
+  background-color: $color-secondary;
+  appearance: none;
+  border: 0;
+  border-radius: 35px;
+  padding: 9px 0;
+  text-align: center;
+  color: white;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
@@ -50,6 +65,7 @@ button{
 @media screen and (min-width: $breakpoint-md) {
   button {
     width: auto;
+    display: block;
   }
 }
 </style>
