@@ -14,7 +14,7 @@ Mobile
 
 ![Gif simulating the mobile app](https://image.ibb.co/gNbfdo/mobile.gif)
 
-### Installing and running the project locally
+## Installing and running the project locally
 
 ### Clone the project
 
