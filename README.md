@@ -59,30 +59,17 @@ The application will be running at:
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
 | Command | Description |
 | - | - |
-| `yarn dev` | Start the application in development mode |
+| `yarn serve` | Start the application in development mode |
 | `yarn build` | Build the application for production |
-| `yarn start` | Start the application in production mode |
-| `yarn build:start` | Build and start for production (good for CI) |
-| `yarn lint` | Runs [ESLint](https://eslint.org/) on your files |
+| `yarn lint` | Runs [ESLint](https://eslint.org/) on the files |
 | `yarn test:unit` | Runs [Jest](https://facebook.github.io/jest/) automated tests |
-| `yarn test:unit:watch` | Runs Jest automated tests in watch mode |
-| `yarn run:prepush` | Runs all tasks necessary for code-quality assurance |
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The deployment to the [prod environment](https://tracker-app.netlify.com/) is done automatically through [Netlify](netlify.com).
 
 ## *Disclaimer*
 
