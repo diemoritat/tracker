@@ -1,7 +1,7 @@
 <template>
   <div class="page-list">
     <main-header/>
-    <app-table :tableData="$store.state.charges"/>
+    <app-table :tableData="$store.state.charges.reverse()"/>
     <app-scroll-top/>
   </div>
 </template>
