@@ -17,6 +17,10 @@ export default {
     AppTable,
     MainHeader,
     AppScrollTop
+  },
+  metaInfo: {
+    title: 'Lista de Cobranças',
+    titleTemplate: '%s | Tracker'
   }
 }
 </script>

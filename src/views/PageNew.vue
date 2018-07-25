@@ -14,6 +14,10 @@ export default {
   components: {
     AltHeader,
     FormAddNew
+  },
+  metaInfo: {
+    title: 'Adicionar nova Cobrança',
+    titleTemplate: '%s | Tracker'
   }
 }
 </script>
