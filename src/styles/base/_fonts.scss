@@ -1,12 +1,10 @@
-$font_path: resolve('@fonts/');
-
 @font-face {
   font-family: 'icomoon';
-  src:  url($font_path + 'icomoon.eot?inz6v9');
-  src:  url($font_path + 'icomoon.eot?inz6v9#iefix') format('embedded-opentype'),
-    url($font_path + 'icomoon.ttf?inz6v9') format('truetype'),
-    url($font_path + 'icomoon.woff?inz6v9') format('woff'),
-    url($font_path + 'icomoon.svg?inz6v9#icomoon') format('svg');
+  src:  url('/fonts/icomoon.eot');
+  src:  url('/fonts/icomoon.eot#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf') format('truetype'),
+    url('/fonts/icomoon.woff') format('woff'),
+    url('/fonts/icomoon.svg#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,24 +24,15 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-chevron-right {
-  &:before {
-    content: $icon-chevron-right; 
-  }
+.icon-chevron-right:before {
+  content: "\e902";
 }
-.icon-check {
-  &:before {
-    content: $icon-check; 
-  }
+.icon-check:before {
+  content: "\e900";
 }
-.icon-alert {
-  &:before {
-    content: $icon-alert; 
-  }
+.icon-alert:before {
+  content: "\e901";
 }
-.icon-arrow-left {
-  &:before {
-    content: $icon-arrow-left; 
-  }
+.icon-arrow-left:before {
+  content: "\ea40";
 }
-

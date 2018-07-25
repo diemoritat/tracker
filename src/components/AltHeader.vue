@@ -2,7 +2,7 @@
   <header class="alt-header">
     <div class="alt-header__top">
       <router-link to="/" class="alt-header__back">
-        <span class="alt-header__back-icon"/>
+        <span class="alt-header__back-icon"><i class="icon-arrow-left"></i></span>
         Voltar
       </router-link>
     </div>
@@ -46,37 +46,10 @@ export default {
 
   &__back-icon {
     width: 12px;
-    height: 2px;
-    background-color: $color-secondary;
     border-radius: 5px;
     position: absolute;
     left: 3px;
-    top: 7px;
-
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: -1px;
-      top: -2px;
-      width: 8px;
-      height: 2px;
-      background-color: $color-secondary;
-      transform: rotate(-45deg);
-      border-radius: 5px;
-    }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: -1px;
-      top: 2px;
-      width: 8px;
-      height: 2px;
-      background-color: $color-secondary;
-      transform: rotate(45deg);
-      border-radius: 5px;
-    }
+    top: 1px;
   }
   &__title {
     flex: 1;

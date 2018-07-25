@@ -27,13 +27,14 @@ export default {
       padding-right: 20px;
 
       &:after {
-        content: '\203A';
-        font-size: 23px;
+        content: "\e902";
+        font-family: 'icomoon' !important;
+        font-size: 18px;
         line-height: 0.9;
         display: block;
         position: absolute;
-        right: 6px;
-        top: 0;
+        right: 2px;
+        top: 2px;
       }
     }
   }

@@ -30,7 +30,7 @@
       >
     </div>
     <span v-show="error !== ''" class="form__input-error">
-      <i class="icon-alert"/>
+      <i class="icon-alert"></i>
       {{ error }}
     </span>
   </div>

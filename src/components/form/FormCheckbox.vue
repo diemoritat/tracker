@@ -66,7 +66,7 @@ export default {
       }
 
       &:after {
-        content: '\2713';
+        content: "\e900";
         position: absolute;
         top: 1px;
         left: 3px;
