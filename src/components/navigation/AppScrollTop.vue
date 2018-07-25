@@ -52,6 +52,12 @@ export default {
   .scroll-top {
     display: inline-block;
     margin: 0;
+
+    &:focus,
+    &:active {
+      outline: none;
+      box-shadow: 0 0 0 2pt $color-highlight;
+    }
   }
 }
 </style>

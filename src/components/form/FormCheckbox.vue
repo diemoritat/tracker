@@ -97,6 +97,11 @@ export default {
         transform: scale(1);
       }
     }
+
+    &:focus + label {
+      outline: .075rem dotted $color-default-light;
+      outline-offset: .2rem;
+    }
   }
 }
 </style>

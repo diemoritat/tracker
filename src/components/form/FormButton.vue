@@ -55,6 +55,18 @@ button{
     transition: background-color 0.2s linear;
   }
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt $color-highlight;
+  }
+
+  &:active {
+    outline: none;
+    box-shadow: 0 0 0 2pt $color-highlight;
+    background-color: $color-secondary-dark;
+    transition: background-color 0.2s linear;
+  }
+
   &[disabled] {
     cursor: not-allowed;
     background: $color-default-light;

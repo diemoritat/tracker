@@ -41,7 +41,13 @@ export default {
     text-transform: uppercase;
     position: relative;
     padding-left: 20px;
-    display: block;
+    display: inline-block;
+
+    &:focus,
+    &:active {
+      outline: none;
+      box-shadow: 0 0 0 2pt $color-highlight;
+    }
   }
 
   &__back-icon {
