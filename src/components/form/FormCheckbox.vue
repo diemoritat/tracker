@@ -67,9 +67,10 @@ export default {
 
       &:after {
         content: "\e900";
+        font-family: 'icomoon' !important;
         position: absolute;
-        top: 1px;
-        left: 3px;
+        top: 3px;
+        left: 2px;
         font-size: 13px;
         color: $color-secondary;
       }
