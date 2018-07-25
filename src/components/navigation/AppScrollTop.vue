@@ -38,7 +38,7 @@ export default {
     font-family: 'icomoon' !important;
     display: block;
     position: absolute;
-    right: 5px;
+    right: calc(50% - 10px);
     top: 6px;
     text-indent: 0;
     line-height: 1;
