@@ -70,7 +70,7 @@ export default {
       default: 'text'
     },
     value: {
-      type: String,
+      type: null,
       required: true,
       default: null
     }
